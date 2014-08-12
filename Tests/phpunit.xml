@@ -1,0 +1,7 @@
+<phpunit bootstrap="ErpConnectTest.php">
+    <testsuites>
+        <testsuite name="OpenERP PHP Connector Test Case Suite">
+            <directory>ErpConnector</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

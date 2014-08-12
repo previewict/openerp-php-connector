@@ -1,0 +1,6 @@
+<?php
+
+define('SERVER', 'http://yourOpenERPServer.com:8080/xmlrpc/');
+define('DATABASE', 'OpenERPDatabaseName');
+define('USERNAME', 'AdministrativeUsername');
+define('PASSWORD', 'AdministrativePassword');
