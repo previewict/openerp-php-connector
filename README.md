@@ -1,3 +1,5 @@
+![OpenErp Logo](https://sigrhe.dgae.mec.pt/openerp/static/images/openerp_small.png)
+
 openerp-php-connector
 =====================
 
