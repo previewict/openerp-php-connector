@@ -37,7 +37,7 @@ use OpenErp\Modules\Sales\Customer;
 * SERVER = Your OpenERP Server. i.e: http://yourOpenERPServer.com
 */
 $sales = new Customer(USERNAME, PASSWORD, DATABASE, SERVER);
-$result = $sales->getCustomer($customerID);   // a customer ID to get details from your OpenERP. i.e: 10
+$result = $sales->read($customerID);   // a customer ID to get details from your OpenERP. i.e: 10
 var_dump($result); die();
 ```
 
