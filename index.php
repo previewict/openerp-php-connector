@@ -5,7 +5,7 @@ require_once 'config.php';
 require_once 'vendor/autoload.php';
 
 use OpenErp\OpenErp;
-$erp = new OpenERP('http://office.previewict.com', 'utf-8');
+$erp = new OpenERP(SERVER, 'utf-8');
 $result = $erp->login(DATABASE, USERNAME, PASSWORD); // return user id, if success
 
 var_dump($result);
