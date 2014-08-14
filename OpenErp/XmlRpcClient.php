@@ -174,7 +174,7 @@ class XmlRpcClient
      */
     public function getDefaultHeader()
     {
-        $headers  = "";
+        $headers = "";
         $headers .= "Content-Type: text/xml\r\n";
         $headers .= "User-Agent: " . $this->userAgent . "\r\n";
         return $headers;
