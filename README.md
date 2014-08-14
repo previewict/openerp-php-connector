@@ -42,3 +42,10 @@ var_dump($result); die();
 ```
 
 Now it will give you a PHP array. And now you can use the data however you want.
+
+- [Submit Issues](https://github.com/previewict/openerp-php-connector/issues/new)
+  Submit issues if you found anything wrong or face any problem to use this library
+- [Instant Support](mailto:shaharia@previewict.com)
+- [Documentation/Wiki](https://github.com/previewict/openerp-php-connector/wiki)
+
+Please [Form](https://github.com/previewict/openerp-php-connector/fork) and send me Pull request if you added something useful for this. Happy PHP-ing!
