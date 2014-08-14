@@ -15,7 +15,6 @@
  * The MIT License (MIT)
  *
  * Copyright (c) 2014 OpenERP PHP Connector
-
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -35,19 +34,15 @@
  * SOFTWARE.
  */
 
+namespace OpenErp\Client\XmlRpc;
 
-namespace OpenErp;
 
-/**
- * Class XmlRpcClient
- * @package OpenErp
- */
-class XmlRpcClient
+class XmlRpc
 {
     /**
      * @var string
      */
-    public $userAgent = 'Shaharia XML-RPC Client';
+    public $userAgent = 'XML-RPC Client';
 
     /**
      * @var
