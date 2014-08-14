@@ -59,7 +59,7 @@ class Customer extends Sales
         'is_company','date', 'lang','mobile','category_id'
     );
 
-    public function customerList($ids = array(), $fields = array())
+    public function lists($ids = array(), $fields = array())
     {
         if(!is_array($ids) && !is_array($fields))
         {
@@ -75,7 +75,7 @@ class Customer extends Sales
      * @param array $fields
      * @return null
      */
-    public function getCustomer($id, $fields = array())
+    public function read($id, $fields = array())
     {
         if(!isset($id))
         {
@@ -108,5 +108,10 @@ class Customer extends Sales
         foreach($key['data']['value'][1] as $key => $value){
             return $value;
         }
+    }
+
+    public function create()
+    {
+
     }
 } 

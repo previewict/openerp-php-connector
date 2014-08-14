@@ -49,5 +49,5 @@ use OpenErp\Modules\Sales\Sales;
 use OpenErp\Modules\Sales\Customer;
 
 $sales = new Customer(USERNAME, PASSWORD, DATABASE, SERVER);
-$result = $sales->getCustomer(10);
+$result = $sales->read(46, 'all');
 var_dump($result); die();
