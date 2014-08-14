@@ -3,19 +3,26 @@ session_start();
 
 require_once 'config.php';
 require_once 'vendor/autoload.php';
-use Erp\Erp;
 
-$oe = new Erp("http://office.previewict.com:8080", "openerp_idesk");
+use OpenErp\OpenErp;
+$erp = new OpenERP('http://office.previewict.com', 'utf-8');
+$result = $erp->login(DATABASE, USERNAME, PASSWORD); // return user id, if success
 
-// login with $url and $dbname
-$oe->login("administrator", "ltqpsmr7");
+var_dump($result);
 
-echo "Logged in (session id: " . $oe->session_id . ")";
+//create a new partner
+$partner = ['name' => 'Foo', 'email' => 'foo@bar.com'];
+$resultCreate = $erp->create('res.partner', $partner); // return record ID, if it created
 
-// Query with direct object method which are mapped to json-rpc calls
-$partners = $oe->read(array(
-    'model' => 'res.partner',
-    'fields' => array('id'),
-));
+var_dump($resultCreate);
 
-var_dump($partners); die();
+$offset = 0; // default
+$limit = 1000; // default
+$criteria= [['name', '=', 'John'], ['email', '=', 'john@example.com']];
+$resultSearch = $erp->search('res.partner', $criteria, $offset, $limit); // return ID array
+var_dump($resultSearch);
+
+$readColumns = ['name', 'email']; // default [] equal 'SELECT * ...'
+$ids = [1, 2];
+$resultRead = $erp->read('res.partner', $ids, $readColumns); // return array of records
+var_dump($resultRead);

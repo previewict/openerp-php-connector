@@ -5,7 +5,7 @@
 
     "require": {
         "php": ">=5.3.0",
-        "tivoka/tivoka": "3.2.*"
+        "phpxmlrpc/phpxmlrpc": "dev-master"
     },
 
     "require-dev": {
@@ -14,7 +14,7 @@
 
     "autoload": {
         "psr-0": {
-            "Erp\\": ""
+            "OpenErp\\": ""
         }
     }
 }
