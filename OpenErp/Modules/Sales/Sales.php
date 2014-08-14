@@ -37,7 +37,10 @@
 namespace OpenErp\Modules\Sales;
 
 
-class Sales
+use OpenErp\Modules\Modules;
+use OpenErp\OpenErp;
+
+class Sales extends Modules
 {
 
-} 
+}

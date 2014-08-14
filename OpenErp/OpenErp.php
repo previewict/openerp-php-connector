@@ -78,7 +78,7 @@ class OpenErp
      * @param $host
      * @param string $charset
      */
-    public function __construct($host, $charset = 'utf-8')
+    public function __construct($username, $password, $database, $host, $charset = 'utf-8')
     {
         $urlInfo = parse_url($host);
         $scheme = $urlInfo['scheme'];
@@ -92,6 +92,7 @@ class OpenErp
             $this->_defaultPath = '';
         }
         $this->_client = new XmlRpc($scheme . '://' . $host, $port, $charset);
+        $this->login($database, $username, $password);
     }
 
     /**

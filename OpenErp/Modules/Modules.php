@@ -37,7 +37,24 @@
 namespace OpenErp\Modules;
 
 
-class Modules
-{
+use OpenErp\OpenErp;
 
+class Modules extends OpenErp
+{
+    public $erp;
+    private $server;
+    private $database;
+    private $username;
+    private $password;
+
+    /**
+     * @param $username
+     * @param $password
+     * @param $database
+     * @param $server
+     */
+    public function __construct($username, $password, $database, $server)
+    {
+        $this->erp = new OpenErp($username, $password, $database, $server);
+    }
 } 
