@@ -110,7 +110,17 @@ class Customer extends Sales
         }
     }
 
-    public function create()
+    public function create($data = array())
+    {
+
+    }
+
+    public function search()
+    {
+
+    }
+
+    public function update($id, $data = array())
     {
 
     }
