@@ -3,6 +3,10 @@
 
     "description": "Connect your PHP driven web application with Open ERP",
 
+    "license": "MIT",
+
+    "keywords": ["openERP", "php", "xmlrpc", "erp"],
+
     "require": {
         "php": ">=5.3.0"
     },
