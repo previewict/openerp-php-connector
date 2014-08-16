@@ -36,10 +36,69 @@
 
 namespace OpenErp\Modules\HumanResource;
 
-
-use OpenErp\Modules\Modules;
-
-class HumanResource extends Modules
+class User extends HumanResource
 {
 
-}
+    private $listDefaultFields = array('groups_id', 'alias_id', 'tz', 'company_id', 'state', 'alias_domain', 'email', 'display_name', 'lang', 'signature', 'login');
+
+    public function lists($ids = array(), $fields = array())
+    {
+        if(!is_array($ids) && !is_array($fields))
+        {
+            return array();
+        }
+
+        $resultRead = $this->erp->read('res.users', $ids, $fields); // return array of records
+        return $resultRead;
+    }
+
+    /**
+     * @param $id
+     * @param array $fields
+     * @return null
+     */
+    public function read($id, $fields = array())
+    {
+        if(!isset($id))
+        {
+            return null;
+        }
+
+        if(!isset($fields) && !sizeof($fields) > 0)
+        {
+            $fields = $this->listDefaultFields;
+        }
+
+        $details = $this->erp->read('res.users', array($id), $fields);
+        return $details[0];
+    }
+
+    /**
+     * Suppose the return array has country_id => array[data]=> array[value] => [0 => '', 1 => 'Original Value']
+     * In this situatio we can easily extract the exact data. I am lazy so I made this handy function.
+     *
+     * @param $key
+     * @return mixed
+     */
+    private function getValueFromKey($key)
+    {
+        foreach($key['data']['value'][1] as $key => $value){
+            return $value;
+        }
+    }
+
+    public function create($data = array())
+    {
+
+    }
+
+    public function search()
+    {
+
+    }
+
+    public function update($id, $data = array())
+    {
+
+    }
+} 
