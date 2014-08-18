@@ -36,8 +36,17 @@
 
 namespace OpenErp\Modules\Projects;
 
+use OpenErp\Modules\Modules;
 
-class Projects
+class Projects extends Modules
 {
-
-} 
+    /**
+     * @return array
+     */
+    public function lists($limit = 100, $offset = 0)
+    {
+        $criteria= array(array('state', '=', 'open'));
+        $resultRead = $this->erp->search('project.project', $criteria, $offset, $limit); // return array of records
+        return $resultRead;
+    }
+}
