@@ -153,9 +153,13 @@ class OpenErp
         $response = $client->call('login', [$db, $login, $password]);
         $this->throwExceptionIfFault($response);
 
-        $uid = (int)$response['params']['param']['value']['int'];
-        $this->_uid = $uid;
-        return $uid;
+        if(isset($response['params']['param']['value']['int'])){
+            $uid = (int)$response['params']['param']['value']['int'];
+            $this->_uid = $uid;
+            return $uid;
+        }else{
+            return null;
+        }
     }
 
     /**
