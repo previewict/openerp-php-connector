@@ -45,9 +45,9 @@
 require_once 'config.php';
 require_once 'vendor/autoload.php';
 
-use OpenErp\Modules\Sales\Sales;
-use OpenErp\Modules\Sales\Customer;
+use OpenErp\Modules\HumanResource\Employee;
 
-$sales = new Customer(USERNAME, PASSWORD, DATABASE, SERVER);
-$result = $sales->read(46, 'all');
+$employee = new Employee(USERNAME, PASSWORD, DATABASE, SERVER);
+$result = $employee->readByLoginId('ErpLoginUsername');
+
 var_dump($result); die();
