@@ -55,6 +55,8 @@ class User extends HumanResource
     }
 
     /**
+     * Get details of a specific user
+     *
      * @param $id
      * @param array $fields
      * @return null
