@@ -57,4 +57,16 @@ class Modules extends OpenErp
     {
         $this->erp = new OpenErp($username, $password, $database, $server);
     }
+
+    public static function getModelAllFields($result)
+    {
+        $results = array_keys($result);
+        $variable = 'array(';
+        foreach($results as $key => $value)
+        {
+            $variable .= '\''.$value.'\''.', ';
+        }
+        $variable .= ')';
+        return $variable;
+    }
 } 
