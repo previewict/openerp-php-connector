@@ -45,9 +45,21 @@
 require_once 'config.php';
 require_once 'vendor/autoload.php';
 
-use OpenErp\Modules\HumanResource\Employee;
+use OpenErp\Modules\Sales\Customer;
 
-$employee = new Employee(USERNAME, PASSWORD, DATABASE, SERVER);
-$result = $employee->readByLoginId('ErpLoginUsername');
+$create=[
+    'name'=>'Test from erp connector again'
+];
+//$update=[
+//    'name'=>'Test from erp connector Updated'
+//];
+$Customer = new Customer(USERNAME, PASSWORD, DATABASE, SERVER);
+//for create
+$result = $Customer->create($create);
+//$result = $Customer->update(35,$update);
+//$result=$Customer->read(27);
 
+//echo '<pre>';
+//print_r($result);
+//echo '<pre>';
 var_dump($result); die();

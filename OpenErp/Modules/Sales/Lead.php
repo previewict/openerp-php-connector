@@ -1,6 +1,6 @@
 <?php
 /**
- * @Author G. M. Shaharia Azam <shaharia.azam@gmail.com>
+ * @Author kingpabel <imtiazpabel@yahoo.com>
  * @URI http://github.com/shahariaazam
  * @GitHub https://github.com/shahariaazam/openerp-php-connector
  *
@@ -37,7 +37,7 @@
 namespace OpenErp\Modules\Sales;
 
 
-class Customer extends Sales
+class Lead extends Sales
 {
     private $allFieldListDefault = array(
         'display_name', 'name', 'email', 'title', 'company_id', 'street', 'zip', 'city',
@@ -59,24 +59,9 @@ class Customer extends Sales
         'is_company','date', 'lang','mobile','category_id'
     );
 
-    public function lists($ids = array(), $fields = array())
-    {
-        if(!is_array($ids) && !is_array($fields))
-        {
-            return array();
-        }
-
-        $resultRead = $this->erp->read('res.partner', $ids, $fields); // return array of records
-        return $resultRead;
-    }
-
-    /**
-     * @param $id
-     * @param array $fields
-     * @return null
-     */
     public function read($id, $fields = array())
     {
+
         if(!isset($id))
         {
             return null;
@@ -92,38 +77,9 @@ class Customer extends Sales
             $fields = $this->allFieldListDefault;
         }
 
-        $details = $this->erp->read('res.partner', array($id), $fields);
+        $details = $this->erp->read('crm.lead', array($id), $fields);
         return $details[0];
     }
 
-    /**
-     * Suppose the return array has country_id => array[data]=> array[value] => [0 => '', 1 => 'Original Value']
-     * In this situatio we can easily extract the exact data. I am lazy so I made this handy function.
-     *
-     * @param $key
-     * @return mixed
-     */
-    private function getValueFromKey($key)
-    {
-        foreach($key['data']['value'][1] as $key => $value){
-            return $value;
-        }
-    }
 
-    public function create($data = array())
-    {
-        $create=$this->erp->create('res.partner', $data);
-        return $create;
-    }
-
-    public function search()
-    {
-
-    }
-
-    public function update($id, $data = array())
-    {
-        $Update=$this->erp->write('res.partner',$id,$data);
-        return $Update;
-    }
-} 
+}
