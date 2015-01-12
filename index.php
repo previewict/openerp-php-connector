@@ -47,9 +47,20 @@ require_once 'vendor/autoload.php';
 
 use OpenErp\Modules\Sales\Customer;
 
-$create=[
-    'name'=>'Test from erp connector again'
-];
+$create=array(
+    'name'=>'Test from erp connector again',
+    'email'=>'connector@yahoo.com',
+    'street'=>'Green Road',
+    'zip'=>'1206',
+    'city'=>'Dhaka',
+    'fax'=>'1234',
+    'street2'=>'Dhaka',
+    'active'=>'1',
+    'website'=>'previewtek.com',
+    'phone'=>'1234',
+    'customer'=>'1',
+    'is_company'=>'0',
+);
 //$update=[
 //    'name'=>'Test from erp connector Updated'
 //];
@@ -57,9 +68,9 @@ $Customer = new Customer(USERNAME, PASSWORD, DATABASE, SERVER);
 //for create
 $result = $Customer->create($create);
 //$result = $Customer->update(35,$update);
-//$result=$Customer->read(27);
+//$result=$Customer->read(23);
 
 //echo '<pre>';
-//print_r($result);
+//print_r($create);
 //echo '<pre>';
 var_dump($result); die();
