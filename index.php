@@ -47,28 +47,38 @@ require_once 'vendor/autoload.php';
 
 use OpenErp\Modules\Sales\Customer;
 
-$create=array(
-    'name'=>'Test from erp connector again',
-    'email'=>'connector@yahoo.com',
-    'street'=>'Green Road',
-    'zip'=>'1206',
-    'city'=>'Dhaka',
-    'fax'=>'1234',
-    'street2'=>'Dhaka',
-    'active'=>'1',
-    'website'=>'previewtek.com',
-    'phone'=>'1234',
-    'customer'=>'1',
-    'is_company'=>'0',
-);
+//create
+//$create=array(
+//    'name'=>'Test from erp connector again',
+//    'email'=>'connector@yahoo.com',
+//    'street'=>'Green Road',
+//    'zip'=>'1206',
+//    'city'=>'Dhaka',
+//    'fax'=>'1234',
+//    'street2'=>'Dhaka',
+//    'active'=>'1',
+//    'website'=>'previewtek.com',
+//    'phone'=>'1234',
+//    'customer'=>'1',
+//    'is_company'=>'0',
+//);
+
+//data update
 //$update=[
-//    'name'=>'Test from erp connector Updated'
+//    'name'=>'Test from erp connector Updated2'
 //];
+
+//user login
+//$username='administrator';
+//$password='ltqpsmr7';
+
 $Customer = new Customer(USERNAME, PASSWORD, DATABASE, SERVER);
+
 //for create
-$result = $Customer->create($create);
-//$result = $Customer->update(35,$update);
-//$result=$Customer->read(23);
+//$result = $Customer->create($create);
+//$result = $Customer->update(37,$update);
+//$result = $Customer->login($username,$password);
+//$result=$Customer->read(37);
 
 //echo '<pre>';
 //print_r($create);

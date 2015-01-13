@@ -116,9 +116,9 @@ class Customer extends Sales
         return $create;
     }
 
-    public function search()
+    public function login($username,$password)
     {
-
+        return $this->erp->login('bitnami_openerp',$username, $password);
     }
 
     public function update($id, $data = array())
@@ -126,4 +126,4 @@ class Customer extends Sales
         $Update=$this->erp->write('res.partner',$id,$data);
         return $Update;
     }
-} 
+}
