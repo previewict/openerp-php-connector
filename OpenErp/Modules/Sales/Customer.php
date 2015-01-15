@@ -75,7 +75,7 @@ class Customer extends Sales
      * @param array $fields
      * @return null
      */
-    public function read($id, $fields = array())
+    public function read($model='res.partner',$id, $fields = array())
     {
         if(!isset($id))
         {
@@ -92,7 +92,7 @@ class Customer extends Sales
             $fields = $this->allFieldListDefault;
         }
 
-        $details = $this->erp->read('res.partner', array($id), $fields);
+        $details = $this->erp->read($model, array($id), $fields);
         return $details[0];
     }
 
@@ -110,20 +110,15 @@ class Customer extends Sales
         }
     }
 
-    public function create($data = array())
+    public function create($model = 'res.partner', $data = array())
     {
-        $create=$this->erp->create('res.partner', $data);
+        $create=$this->erp->create($model= 'res.partner', $data);
         return $create;
     }
 
-    public function login($username,$password)
-    {
-        return $this->erp->login('bitnami_openerp',$username, $password);
-    }
 
     public function update($id, $data = array())
     {
-        $Update=$this->erp->write('res.partner',$id,$data);
-        return $Update;
+
     }
-}
+} 
