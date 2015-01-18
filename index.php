@@ -45,9 +45,22 @@
 require_once 'config.php';
 require_once 'vendor/autoload.php';
 
-use OpenErp\Modules\HumanResource\Employee;
+use OpenErp\Modules\Sales\Customer;
+/*$create=array(
+    'name'=>'Test from erp connector again',
+    'email'=>'connector@yahoo.com',
+    'street'=>'Green Road',
+    'zip'=>'1206',
+    'city'=>'Dhaka',
+    'fax'=>'1234',
+    'street2'=>'Dhaka',
+    'active'=>'1',
+    'website'=>'previewtek.com',
+    'phone'=>'1234',
+    'customer'=>'1',
+    'is_company'=>'0',
+);*/
 
-$employee = new Employee(USERNAME, PASSWORD, DATABASE, SERVER);
-$result = $employee->readByLoginId('ErpLoginUsername');
-
+$Customer = new Customer(USERNAME, PASSWORD, DATABASE, SERVER);
+$result = $Customer->create($model=null,$create);
 var_dump($result); die();
