@@ -110,9 +110,9 @@ class Customer extends Sales
         }
     }
 
-    public function create($model = 'res.partner', $data = array())
+    public function create($data = array())
     {
-        $create=$this->erp->create($model= 'res.partner', $data);
+        $create = $this->erp->create('res.partner', $data);
         return $create;
     }
 

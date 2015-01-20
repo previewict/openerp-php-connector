@@ -46,21 +46,22 @@ require_once 'config.php';
 require_once 'vendor/autoload.php';
 
 use OpenErp\Modules\Sales\Customer;
-/*$create=array(
-    'name'=>'Test from erp connector again',
-    'email'=>'connector@yahoo.com',
-    'street'=>'Green Road',
-    'zip'=>'1206',
-    'city'=>'Dhaka',
-    'fax'=>'1234',
-    'street2'=>'Dhaka',
+
+$create=array(
+    'name'=>'Name of your customer',
+    'email'=>'YourCustomer@Email.com',
+    'street'=>'Loremp Ipsum Road',
+    'zip'=>'1111',
+    'city'=>'City',
+    'fax'=>'1111',
+    'street2'=>'Secondary Street',
     'active'=>'1',
-    'website'=>'previewtek.com',
-    'phone'=>'1234',
+    'website'=>'yourCustomersWebsite.com',
+    'phone'=>'1111',
     'customer'=>'1',
     'is_company'=>'0',
-);*/
+);
 
 $Customer = new Customer(USERNAME, PASSWORD, DATABASE, SERVER);
-$result = $Customer->create($model=null,$create);
+$result = $Customer->create($create);
 var_dump($result); die();

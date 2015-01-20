@@ -218,7 +218,7 @@ class OpenErp
      * @param $data
      * @return int
      */
-    public function create($model, $data)
+    protected function create($model, $data)
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
@@ -238,7 +238,7 @@ class OpenErp
      * @param int $limit
      * @return array
      */
-    public function search($model, $data, $offset = 0, $limit = 1000)
+    protected function search($model, $data, $offset = 0, $limit = 1000)
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
@@ -267,7 +267,7 @@ class OpenErp
      * @param array $fields
      * @return array
      */
-    public function read($model, $ids, $fields = [])
+    protected function read($model, $ids, $fields = [])
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
@@ -313,7 +313,7 @@ class OpenErp
      * @param $fields
      * @return bool|mixed|\SimpleXMLElement|string
      */
-    public function write($model, $ids, $fields)
+    protected function write($model, $ids, $fields)
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
@@ -333,7 +333,7 @@ class OpenErp
      * @param $ids
      * @return bool|mixed|\SimpleXMLElement|string
      */
-    public function unlink($model, $ids)
+    protected function unlink($model, $ids)
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
