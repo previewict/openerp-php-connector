@@ -218,7 +218,7 @@ class OpenErp
      * @param $data
      * @return int
      */
-    protected function create($model, $data)
+    public function create($model, $data)
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
@@ -238,7 +238,7 @@ class OpenErp
      * @param int $limit
      * @return array
      */
-    protected function search($model, $data, $offset = 0, $limit = 1000)
+    public function search($model, $data, $offset = 0, $limit = 1000)
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
@@ -267,7 +267,7 @@ class OpenErp
      * @param array $fields
      * @return array
      */
-    protected function read($model, $ids, $fields = [])
+    public function read($model, $ids, $fields = [])
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
@@ -313,7 +313,7 @@ class OpenErp
      * @param $fields
      * @return bool|mixed|\SimpleXMLElement|string
      */
-    protected function write($model, $ids, $fields)
+    public function write($model, $ids, $fields)
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
@@ -333,7 +333,7 @@ class OpenErp
      * @param $ids
      * @return bool|mixed|\SimpleXMLElement|string
      */
-    protected function unlink($model, $ids)
+    public function unlink($model, $ids)
     {
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
@@ -352,7 +352,7 @@ class OpenErp
      * @param $response
      * @throws \Exception
      */
-    protected function throwExceptionIfFault($response)
+    public function throwExceptionIfFault($response)
     {
         if (isset($response['fault'])) {
             $faultArray = $response['fault']['value']['struct']['member'];
