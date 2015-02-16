@@ -256,7 +256,7 @@ class OpenErp
         $ids = [];
         $response = $response['value'];
         foreach ($response as $value) {
-            $ids[] = (int)$value['int'];
+            $ids[] = (int)$value;
         }
         return $ids;
     }
