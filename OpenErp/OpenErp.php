@@ -256,7 +256,11 @@ class OpenErp
         $ids = [];
         $response = $response['value'];
         foreach ($response as $value) {
-            $ids[] = (int)$value;
+            if(array_key_exists('int', $value)){
+                $ids[] = (int)$value['int'];
+            }else{
+                $ids[] = (int)$value;
+            }
         }
         return $ids;
     }
