@@ -347,7 +347,7 @@ class OpenErp
         $client = $this->getClient();
         $client->setPath('/xmlrpc/object');
 
-        $params = [$this->_db, $this->getUid(), $this->_password, $model, 'write', $ids];
+        $params = [$this->_db, $this->getUid(), $this->_password, $model, 'unlink', $ids];
 
         $response = $client->call('execute', $params);
         $this->throwExceptionIfFault($response);
