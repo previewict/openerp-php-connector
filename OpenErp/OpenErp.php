@@ -356,6 +356,28 @@ class OpenErp
 
         return $response;
     }
+    
+    /**
+     * @param $model
+     * @param $signal
+     * @param $id
+     * @return bool|mixed|\SimpleXMLElement|string
+     * @throws \Exception
+     */
+    public function exec_workflow($model, $signal, $id)
+    {
+        $client = $this->getClient();
+        $client->setPath('/xmlrpc/object');
+
+        $params = [$this->_db, $this->getUid(), $this->_password, $model, $signal, $id];
+
+        $response = $client->call('exec_workflow', $params);
+        $this->throwExceptionIfFault($response);
+
+        $response = (bool)$response['params']['param']['value']['boolean'];
+
+        return $response;
+    }
 
     /**
      * @param $response
