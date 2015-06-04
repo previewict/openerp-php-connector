@@ -399,6 +399,48 @@ class OpenErp
 
         return (int)$response['params']['param']['value']['int'];
     }
+    
+    /**
+     * @param $model
+     * @param $data
+     * @param array $fields
+     * @param int $offset
+     * @param int $limit
+     * @return array
+     * @throws \Exception
+     */
+    public function search_read($model, $data, $fields = array(), $offset = 0, $limit = 100)
+    {
+        $client = $this->getClient();
+        $client->setPath('/xmlrpc/object');
+
+        $params = [$this->_db, $this->getUid(), $this->_password, $model, 'search_read', $data, $fields, $offset, $limit];
+
+        $response = $client->call('execute', $params);
+
+        $this->throwExceptionIfFault($response);
+
+        $response = $response['params']['param']['value']['array']['data'];
+
+        if (!isset($response['value'])) {
+            return [];
+        }
+
+        $response = $response['value'];
+
+        foreach ($response as $item) {
+            $record = [];
+            $recordItems = $item['struct']['member'];
+
+            foreach ($recordItems as $recordItem) {
+                $key = $recordItem['name'];
+                $value = current($recordItem['value']);
+                $record[$key] = $value;
+            }
+            $records[] = $record;
+        }
+        return $records;
+    }
 
     /**
      * @param $response
