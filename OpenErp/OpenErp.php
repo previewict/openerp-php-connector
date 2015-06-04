@@ -380,6 +380,27 @@ class OpenErp
     }
 
     /**
+     * @param $model
+     * @param $data
+     * @return int|null
+     */
+    public function search_count($model, $data)
+    {
+        $client = $this->getClient();
+        $client->setPath('/xmlrpc/object');
+
+        $params = [$this->_db, $this->getUid(), $this->_password, $model, 'search_count', $data];
+
+        $response = $client->call('execute', $params);
+
+        if(!isset($response['params']['param']['value'])){
+            return null;
+        }
+
+        return (int)$response['params']['param']['value']['int'];
+    }
+
+    /**
      * @param $response
      * @throws \Exception
      */
