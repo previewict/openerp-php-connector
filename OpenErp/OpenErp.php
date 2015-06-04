@@ -426,7 +426,9 @@ class OpenErp
             return [];
         }
 
-        $response = $response['value'];
+        if(sizeof($response['value']) > 1){
+            $response = $response['value'];
+        }
 
         foreach ($response as $item) {
             $record = [];
