@@ -302,8 +302,11 @@ class XmlRpc
      */
     private function isAssoc($array)
     {
-        if (is_array($array) && !is_numeric(array_shift(array_keys($array)))) {
-            return true;
+        if(is_array($array)){
+            $array = array_keys($array);
+            if(!is_numeric(array_shift($array))){
+                return true;
+            }
         }
         return false;
     }
